@@ -14,18 +14,16 @@ Plug 'epeli/slimux'
 Plug 'flazz/vim-colorschemes'
 Plug 'nlknguyen/copy-cut-paste.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'honza/dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nickaroot/vim-xcode-dark-theme'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 """ Setting up colorscheme and transluscent background
-colorscheme gotham256
+colorscheme PaperColor
 "hi Normal guibg=NONE ctermbg=NONE
-let g:lightline = { 'colorscheme': 'bluewery' }
 """
-
-
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -40,9 +38,9 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:go_def_mapping_enabled = 0
-vmap <C-c> "+y
-nmap <C-v> "*p
-
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[5 q"
+let &t_EI = "\<esc>[2 q"
 
 :map <C-t> :NERDTreeToggle<CR>
 :nnoremap <Tab> :bnext<CR>
@@ -179,6 +177,19 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+
+
+
+" Register ccls C++ lanuage server.
+if executable('ccls')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
+endif
 
 
 
