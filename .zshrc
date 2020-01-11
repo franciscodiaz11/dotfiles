@@ -1,6 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/franciscod/.oh-my-zsh"
 
@@ -14,11 +23,17 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="red"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_BACKGROUND="029"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="029"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="236"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="086"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="236"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="086"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='023'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='023'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='023'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='white'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='white'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="236"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_DISABLE_RPROMPT=true
 
@@ -111,3 +126,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/powerlevel10k/powerlevel10k.zsh-theme

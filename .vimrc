@@ -1,33 +1,40 @@
 set backspace=2
+set termguicolors 
 set nu
 set bg=dark
 set tabstop=4
 set shiftwidth=4
 syntax enable
+set clipboard=unnamedplus
 set mouse=a
-set clipboard=unnamed
 call plug#begin()
 syntax on
 Plug 'vim-python/python-syntax'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'epeli/slimux'
 Plug 'flazz/vim-colorschemes'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'nlknguyen/copy-cut-paste.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go'
+Plug 'patstockwell/vim-monokai-tasty'
 Plug 'honza/dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'jiangmiao/auto-pairs'
 Plug 'nickaroot/vim-xcode-dark-theme'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
+au BufRead,BufNewFile *.go set filetype=go
+au BufRead,BufNewFile   *.h set filetype=c " (.h)eaders are C, not C++
+au BufRead,BufNewFile   *.py set filetype=python
+
 """ Setting up colorscheme and transluscent background
-colorscheme PaperColor
+set enc=utf-8
+
+colorscheme dark_plus
+"LuciusDarkLowContrast
 "hi Normal guibg=NONE ctermbg=NONE
 """
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 set encoding=utf-8
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype tex setl updatetime=1
@@ -36,18 +43,26 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:NERDTreeNodeDelimiter = "\u00a0"
-let g:go_def_mapping_enabled = 0
+"let g:NERDTreeNodeDelimiter = "\u00a0"
 let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
 let &t_EI = "\<esc>[2 q"
+let g:cpp_class_scope_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:go_highlight_functions_calls = 1
+let g:go_highlight_structs = 1 
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:multi_cursor_select_all_word_key = '<A-n>'
 
-:map <C-t> :NERDTreeToggle<CR>
+
+:map <C-f> :NERDTreeToggle<CR>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
 
-"""" LSP related !
 " if hidden is not set, TextEdit might fail.
 set hidden
 
