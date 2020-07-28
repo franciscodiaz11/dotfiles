@@ -1,4 +1,4 @@
-Plug 'terryma/vim-multiple-cursors'set backspace=2
+set backspace=2
 set termguicolors 
 set nu
 set bg=dark
@@ -36,7 +36,6 @@ colorscheme pencil
 "hi Normal guibg=NONE ctermbg=NONE
 """
 
-set encoding=utf-8
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
