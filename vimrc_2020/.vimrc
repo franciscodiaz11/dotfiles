@@ -1,4 +1,4 @@
-set backspace=2
+Plug 'terryma/vim-multiple-cursors'set backspace=2
 set termguicolors 
 set nu
 set bg=dark
@@ -12,11 +12,12 @@ syntax on
 Plug 'vim-python/python-syntax'
 Plug 'flazz/vim-colorschemes'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-fugitive'
 Plug 'nlknguyen/copy-cut-paste.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'honza/dockerfile.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'terryma/vim-multiple-cursors'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/open-browser.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -36,15 +37,17 @@ colorscheme pencil
 """
 
 set encoding=utf-8
-let g:livepreview_previewer = 'evince'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "let g:NERDTreeNodeDelimiter = "\u00a0"
+
+"Change cursor based on current vim mode
 let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
 let &t_EI = "\<esc>[2 q"
+"
 let g:cpp_class_scope_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:go_highlight_functions_calls = 1
@@ -53,7 +56,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:multi_cursor_select_all_word_key = '<A-n>'
 
 
 :map <C-f> :NERDTreeToggle<CR>
