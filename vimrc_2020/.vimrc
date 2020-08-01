@@ -8,20 +8,21 @@ syntax enable
 set clipboard=unnamedplus
 set mouse=a
 call plug#begin()
-syntax on
 Plug 'vim-python/python-syntax'
 Plug 'flazz/vim-colorschemes'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tpope/vim-fugitive'
 Plug 'nlknguyen/copy-cut-paste.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'honza/dockerfile.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/open-browser.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'bling/vim-bufferline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 au BufRead,BufNewFile *.go set filetype=go
@@ -30,18 +31,19 @@ au BufRead,BufNewFile   *.py set filetype=python
 
 """ Setting up colorscheme and transluscent background
 set enc=utf-8
-
+"Colorscheme uri ->  https://github.com/Mizux/vim-colorschemes.git
 colorscheme pencil
-"LuciusDarkLowContrast
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 """
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
 "let g:NERDTreeNodeDelimiter = "\u00a0"
 
+let NERDTreeShowHidden=1
 "Change cursor based on current vim mode
 let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
@@ -82,6 +84,10 @@ set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
+
+" :Files to fuzzy search for files
+" :Buffer to fuzzy search for buffers
+"
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
