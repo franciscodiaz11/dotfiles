@@ -1,16 +1,15 @@
-
 call plug#begin()
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'flazz/vim-colorschemes'
 Plug 'nlknguyen/copy-cut-paste.vim'
+Plug 'wfxr/minimap.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/open-browser.vim'
 Plug 'bling/vim-bufferline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
@@ -19,13 +18,21 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-call plug#end()
+Plug 'reedes/vim-colors-pencil'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-glaive'
+Plug 'google/vim-codefmt'
 
+call plug#end()
+colorscheme pencil
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
 
 """ Setting up colorscheme and transluscent background
 "Colorscheme uri ->  https://github.com/Mizux/vim-colorschemes.git
-colorscheme pencil
-hi Normal guibg=NONE ctermbg=NONE
+
 """
 set laststatus=2
 "let g:NERDTreeNodeDelimiter = "\u00a0"
@@ -35,9 +42,10 @@ let NERDTreeShowHidden=1
 let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
 let &t_EI = "\<esc>[2 q"
+let t:is_transparent = 1
 highlight clear LspWarningLine
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': 'W'}
+let g:lsp_signs_error = {'text': 'X'}
+let g:lsp_signs_warning = {'text': '🔵'}
 let g:cpp_class_scope_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:go_highlight_functions_calls = 1
@@ -46,18 +54,19 @@ let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+:map <C-m> :MinimapToggle<CR>
 :map <C-f> :NERDTreeToggle<CR>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 :map <C-t> :term<CR>
 set backspace=2
-set termguicolors 
+"set termguicolors 
 set t_Co=256
 set nu
 set bg=dark
 set tabstop=4
 set shiftwidth=4
-set nocompatible
+"set nocompatible
 set enc=utf-8
 syntax enable
 set clipboard=unnamed
