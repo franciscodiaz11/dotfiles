@@ -1,5 +1,4 @@
 call plug#begin()
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'nlknguyen/copy-cut-paste.vim'
 Plug 'wfxr/minimap.vim'
 Plug 'scrooloose/nerdtree'
@@ -20,20 +19,14 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-glaive'
-Plug 'google/vim-codefmt'
+
 
 call plug#end()
-colorscheme pencil
+"colorscheme pencil
 hi Normal     ctermbg=NONE guibg=NONE
-hi LineNr     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE ctermfg=white
 hi SignColumn ctermbg=NONE guibg=NONE
 
-""" Setting up colorscheme and transluscent background
-"Colorscheme uri ->  https://github.com/Mizux/vim-colorschemes.git
-
-"""
 set laststatus=2
 "let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:airline_theme = 'pencil'
@@ -56,6 +49,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 :map <C-m> :MinimapToggle<CR>
 :map <C-f> :NERDTreeToggle<CR>
+:map <C-h> :LspHover<CR> 
+:map <C-d> :LspDocumentDiagnostics<CR>
+:map <C-x> :bd<CR>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 :map <C-t> :term<CR>
